@@ -1,12 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="main.js" type="module"></script>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Lovers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="titulo">
+    <h1>GlobaLexplorer</h1>
+  </header>
+  <main class="cajaprincipal">
+    <section class="cajaseleccionsection">
+      <form class="cajaseleccionform">
+        <fieldset>
+          <legend>Select one or more options</legend>
+          <select name="continenteSelect" id="continenteSelect">
+            <option value="" disabled selected>Continents</option>
+            <option value="1">America</option>
+            <option value="2">Europe</option>
+            <option value="3">Asia</option>
+            <option value="4">Africa</option>
+            <option value="5">Oceania</option>
+            <option value="6">Antarctica</option>
+          </select>
+          <select name="countrySelect" id="countrySelect">
+            <option value="" disabled selected>Countries</option>
+          </select>
+          <select name="languageSelect" id="languageSelect">
+            <option value="" disabled selected>Languages</option>
+          </select>
+          <select name="utcSelect" id="utcSelect">
+            <option value="" disabled selected>Time zones</option>
+          </select>
+          <select name="poblacionSelect" id="poblacionSelect">
+            <option value="" disabled selected>Population</option>
+            <option value="1">Less than a Thousand</option>
+            <option value="2">Thousands</option>
+            <option value="3">Millions</option>
+            <option value="4">Billions</option>
+          </select>
+          <button type="submit" id="filtrar">Enviar</button>
+        </fieldset>
+      </form>
+    </section>
+    <br>
+    <br>
+    <div class="cajaentregaflex">
+      <label class="continente" for="continente"> 
+      <span>Continente</span><br>
+      <input type="text" id="continente" name="continente">
+      </label>
+      <label class="pais" for="pais">
+      <span>País</span><br>
+      <input type="text" id="pais" name="pais">
+      </label>
+      <label class="infogral" for="infogral">
+      <span>Información General</span><br>
+      <input type="text" id="infogral" name="infogral">
+      </label>
+    </div>
+  </main>
+  <div id="root"></div>
+  <script src="main.js" type="module"></script>
+</body>
+
 </html>
+

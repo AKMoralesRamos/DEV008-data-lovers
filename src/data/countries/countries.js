@@ -2629,7 +2629,7 @@ export default {
       "subregion": "Southeast Europe",
       "languages": {
         "sqi": "Albanian",
-        "srp": "Serbian"
+        "srp": "Serbian" 
       },
       "borders": [
         "ALB",
@@ -9635,7 +9635,7 @@ export default {
       },
       "fifa": "SEN",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Africa"
