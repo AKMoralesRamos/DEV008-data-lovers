@@ -2,11 +2,27 @@ html {
     height: 100%;
     width: 100%;
     padding: 30px, 30px;
+    background-color:#d4b42e;
+  }
+
+
+  
+  h1 {
+    font-family: "Grobold", sans-serif;
+    font-size: 50px;
+    font-weight: bolder;
+    color: #9b1717;
+   /*  text-shadow: 
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black; */
   }
 
   .titulo {
-    width: 90%;
+    width: 100%;
     padding: 50px 50px;
+    background-color: rgb(249, 248, 247);
   }
 
   .cajaprincipal {
@@ -34,3 +50,65 @@ html {
   flex-direction: column;
 }
 
+#root {
+  width: 90%;
+  padding: 50px 50px;
+  display: flex;
+  flex-wrap: wrap; /* Permite el ajuste de los elementos en varias filas */
+  justify-content: center; /* Ajusta el alineamiento horizontal de los elementos */
+  align-items: flex-start; /* Ajusta el alineamiento vertical de los elementos */
+}
+
+.card {
+  width: 300px;
+  height: 500px;
+  margin: 60px;
+  padding: 20px 50px;
+  /* border: 1px solid #9b1717; */
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+.card img {
+  width: 138%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #5a5a5a;
+  object-fit: cover;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset;
+  box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.833);
+}
+
+.card img:hover {
+  transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+p {
+  
+  font-size: 22px;
+  padding: 0px 30px;
+  justify-content: center;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: bold;
+  color: #000f7c;
+
+}
+
+
+
+.color1 {color: #0ffff7;}
+.color2 {color: #8bffc6;}
+.color3 {color: #a80800;}
+.color4 {color: #c45000;}
+.color5 {color: #d4b42e;}

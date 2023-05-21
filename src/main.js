@@ -79,6 +79,33 @@ sortedTimezones.forEach(timezone => {
   select.appendChild(option);
 });
 
+const countries = data.countries;
+
+const rootElement = document.getElementById('root');
+
+countries.forEach(country => {
+  const cardElement = document.createElement('div');
+  cardElement.classList.add('card');
+
+  const imageElement = document.createElement('img');
+  imageElement.src = country.flags.png;
+
+  const nameElement = document.createElement('p');
+  nameElement.textContent = country.name.common;
+  cardElement.appendChild(nameElement);
+  cardElement.appendChild(imageElement);
+  rootElement.appendChild(cardElement);
+});
+// Obtener el elemento de la imagen
+const imagen = document.getElementById("img");
+
+// Establecer nuevas dimensiones
+const nuevoAncho = 500;
+const nuevoAlto = 200;
+
+// Cambiar el tamaño de la imagen
+imagen.style.width = nuevoAncho + "px";
+imagen.style.height = nuevoAlto + "px";
 
 /* console.log(example, data); */
 
