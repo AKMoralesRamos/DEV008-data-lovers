@@ -14,6 +14,7 @@
 <body>
   <header class="titulo">
     <h1>GlobaLexplorer.com</h1>
+    <div class="imagenFondo"></div>
   </header>
   <main class="cajaprincipal">
     <section class="cajaseleccionsection">
@@ -45,26 +46,18 @@
             <option value="3">Millions</option>
             <option value="4">Billions</option>
           </select>
+          <select name="ordenar" id="ordenar">
+            <option value="" disabled selected>Sort</option>
+            <option value="1">A to Z</option>
+            <option value="2">Z to A</option>
+          </select>
           <button type="submit" id="filtrar">Search</button>
         </fieldset>
       </form>
     </section>
     <br>
     <br>
-    <!-- <div class="cajaentregaflex">
-      <label class="continente" for="continente"> 
-      <span>Continente</span><br>
-      <input type="text" id="continente" name="continente">
-      </label>
-      <label class="pais" for="pais">
-      <span>País</span><br>
-      <input type="text" id="pais" name="pais">
-      </label>
-      <label class="infogral" for="infogral">
-      <span>Información General</span><br>
-      <input type="text" id="infogral" name="infogral">
-      </label>
-    </div> -->
+    
   </main>
   <div id="root">
 
