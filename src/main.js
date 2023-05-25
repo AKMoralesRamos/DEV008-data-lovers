@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { filtrado } from "./data.js";
+import { filtradoU, filtradoD} from "./data.js";
 // import data from './data/lol/lol.js';
 import data from "./data/countries/countries.js";
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -119,30 +119,28 @@ showCountries(data.countries);
 
 //*********************** FUNCIONES DE FILTRADO **********************//
 
+
 const boton = document.getElementById("filtrar");
 boton.addEventListener("click", filtrandoDatos);
 let dataCountries = data.countries;
 function filtrandoDatos() {
   const selPais = document.getElementById("countrySelect").value;
+  const selContinent = document.getElementById("continenteSelect").value;
+  if (selContinent !== "") {
+    dataCountries = filtradoU(data.countries, selContinent);
+    showCountries(dataCountries);
+    console.log(dataCountries);
+  }
 
   if (selPais !== "") {
-    dataCountries = filtrado(data.countries, selPais);
+    dataCountries = filtradoD(data.countries, selPais);
     showCountries(dataCountries);
   }
 }
 
-/* const boton = document.getElementById("filtrar");
-boton.addEventListener('click', filtrandoDatos);
 
-function filtrandoDatos() {
-  const selPais = document.getElementById("countrySelect").value;
-  let dataCountries = data.countries;
 
-  if (selPais !== "") {
-    dataCountries = filtrado(dataCountries, selPais);
-    console.log(dataCountries);
-  }
-}  */
+
 
 // Obtener el elemento de la imagen
 /* const imagen = document.getElementById("img"); */
