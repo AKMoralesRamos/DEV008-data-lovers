@@ -9,7 +9,7 @@ html {
   
   h1 {
     font-family:"Grobold";
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bolder;
     color: rgba(0, 0, 0, 0.833);
    
@@ -37,13 +37,7 @@ html {
     padding: 10px 10px;
   }
   
-  .cajaentregaflex {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 10px 10px;
-  }
+
 
 #root {
   width: 90%;
@@ -56,7 +50,7 @@ html {
 
 .card {
   width: 200px;
-  height: 335px;
+  height: 360px;
   margin: 60px;
   padding: 20px 50px;
   border: 1px solid #d48383;
@@ -182,5 +176,5 @@ br {
 .color3 {color: #a80800;}
 .color4 {color: #c45000;}
 .color5 {color: #d4b42e;}
-rgba(0, 0, 0, 0.833);
-bisque
+/* rgba(0, 0, 0, 0.833); */
+/* bisque */
