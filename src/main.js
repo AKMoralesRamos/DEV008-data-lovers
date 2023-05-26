@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { filtradoU, filtradoD} from "./data.js";
+import { filtradoA, filtradoB, filtradoC, filtradoD, filtradoE} from "./data.js";
 // import data from './data/lol/lol.js';
 import data from "./data/countries/countries.js";
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -46,9 +46,8 @@ const timezonesSet = new Set();
 
 data.countries.forEach((country) => {
   country.timezones.forEach((timezone) => {
-    if (timezone !== "UTC") {
-      timezonesSet.add(timezone);
-    }
+    timezonesSet.add(timezone);
+
   });
 });
 
@@ -126,14 +125,36 @@ let dataCountries = data.countries;
 function filtrandoDatos() {
   const selPais = document.getElementById("countrySelect").value;
   const selContinent = document.getElementById("continenteSelect").value;
+  const selLanguages = document.getElementById("languageSelect").value;
+  const selUtc = document.getElementById("utcSelect").value;
+  const selIndep = document.getElementById("indepSelect").value;
   if (selContinent !== "") {
-    dataCountries = filtradoU(data.countries, selContinent);
+    dataCountries = filtradoA(data.countries, selContinent);
     showCountries(dataCountries);
     console.log(dataCountries);
   }
 
   if (selPais !== "") {
-    dataCountries = filtradoD(data.countries, selPais);
+    dataCountries = filtradoB(data.countries, selPais);
+    showCountries(dataCountries);
+    console.log(dataCountries);
+  }
+
+  if (selLanguages !== "") {
+    dataCountries = filtradoC(data.countries, selLanguages);
+    showCountries(dataCountries);
+    console.log(dataCountries);
+  }
+
+  if (selUtc !== "") {
+    dataCountries = filtradoD(data.countries, selUtc);
+    console.log(dataCountries);
+    showCountries(dataCountries);
+  }
+
+  if (selIndep !== "") {
+    dataCountries = filtradoE(data.countries, selIndep);
+    console.log(dataCountries);
     showCountries(dataCountries);
   }
 }

@@ -620,7 +620,7 @@ export default {
       },
       "fifa": "STP",
       "timezones": [
-        "UTC"
+        "UTC+01:00"
       ],
       "continents": [
         "Africa"
@@ -1227,7 +1227,7 @@ export default {
       },
       "fifa": "SLE",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Africa"
@@ -2093,7 +2093,7 @@ export default {
       "fifa": "POR",
       "timezones": [
         "UTC-01:00",
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Europe"
@@ -3248,7 +3248,7 @@ export default {
       },
       "fifa": "MTN",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Africa"
@@ -3326,7 +3326,7 @@ export default {
       },
       "fifa": "ESP",
       "timezones": [
-        "UTC",
+        "UTC+01:00",
         "UTC+01:00"
       ],
       "continents": [
@@ -3553,7 +3553,7 @@ export default {
       },
       "fifa": "MAR",
       "timezones": [
-        "UTC"
+        "UTC+01:00"
       ],
       "continents": [
         "Africa"
@@ -4226,7 +4226,7 @@ export default {
       },
       "fifa": "ISL",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Europe"
@@ -4410,7 +4410,7 @@ export default {
       },
       "fifa": "GUI",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Africa"
@@ -4719,7 +4719,7 @@ export default {
       },
       "fifa": "MLI",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Africa"
@@ -5306,7 +5306,7 @@ export default {
       },
       "fifa": "LBR",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Africa"
@@ -5471,7 +5471,7 @@ export default {
       },
       "fifa": "TOG",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Africa"
@@ -6272,7 +6272,7 @@ export default {
       },
       "fifa": "GHA",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Africa"
@@ -7073,7 +7073,7 @@ export default {
         "UTC-04:00",
         "UTC-03:00",
         "UTC-02:00",
-        "UTC",
+        "UTC+00:00",
         "UTC+01:00",
         "UTC+02:00",
         "UTC+06:00"
@@ -7578,7 +7578,7 @@ export default {
       },
       "fifa": "IRL",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Europe"
@@ -8781,7 +8781,7 @@ export default {
       },
       "fifa": "BFA",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Africa"
@@ -8989,7 +8989,7 @@ export default {
       },
       "fifa": "CIV",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Africa"
@@ -9203,7 +9203,7 @@ export default {
       },
       "fifa": "GNB",
       "timezones": [
-        "UTC"
+        "UTC+00:00"
       ],
       "continents": [
         "Africa"
@@ -9525,7 +9525,7 @@ export default {
         "UTC-04:00",
         "UTC-03:00",
         "UTC-01:00",
-        "UTC",
+        "UTC+00:00",
         "UTC+01:00"
       ],
       "continents": [
