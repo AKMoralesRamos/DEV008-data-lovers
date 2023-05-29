@@ -8,10 +8,6 @@ export const filtradoB = (data, pais) => {
   return data.filter(country => country.name.common === pais);
 };
 
-/* export const filtradoT = (data, lenguaje) => {
-  return data.filter(country => country.languages.some(languageCode => languageCode === lenguaje));
-} */
-
 export const filtradoC = (data, lenguaje) => {
   return data.filter((country) => {
     for (const languageCode in country.languages) {
@@ -23,7 +19,6 @@ export const filtradoC = (data, lenguaje) => {
   });
 };
 
-
 export const filtradoD = (data, utc) => {
   return data.filter(country => country.timezones.includes(utc));
 }
@@ -34,8 +29,21 @@ export const filtradoE = (data, independiente) => {
   return filteredCountries;
 }
 
-/* return data.filter(country => country.independent === (independiente === "true" && independiente === "false")); */
-/* export const anotherExample = () => {
-  return 'OMG';
-}; */
+
+export const sortAZ = (countries) => {
+  countries.sort((a, b) => {
+    const nameA = a.name.common.toUpperCase();
+    const nameB = b.name.common.toUpperCase();
+
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+    return 0;
+  });
+
+  return countries;
+};
 

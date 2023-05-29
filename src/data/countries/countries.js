@@ -8555,8 +8555,8 @@ export default {
     },
     {
       "name": {
-        "common": "Åland Islands",
-        "official": "Åland Islands"
+        "common": "Aland Islands",
+        "official": "Aland Islands"
       },
       "tld": [
         ".ax"

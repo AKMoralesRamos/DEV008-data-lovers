@@ -2,6 +2,7 @@ html {
     height: 100%;
     width: 100%;
     padding: 10px, 30px;
+    
     /* background-color:#d4b42e; */
   }
 
@@ -40,11 +41,12 @@ html {
 
 
 #root {
-  width: 90%;
-  padding: 50px 50px;
+  width: 85%;
+  padding: 10px 10px;
+  border: 0px;
   display: flex;
   flex-wrap: wrap; /* Permite el ajuste de los elementos en varias filas */
-  justify-content: center; /* Ajusta el alineamiento horizontal de los elementos */
+  justify-content: flex-start; /* Ajusta el alineamiento horizontal de los elementos */
   align-items: flex-start; /* Ajusta el alineamiento vertical de los elementos */
 }
 
@@ -104,25 +106,59 @@ body {
   padding: 20px;
   background:url("mapamundi3.jpg");
   background-size: cover;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
+  filter: brightness(1);
 }
 
-.cajaseleccionsection {
+.welcome {
+  background-color:#1c1c1c99;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+h2 {
+  font-size:25px;
+  color:#FFFFFF;
+  display: flex;
+  justify-content: center;
+  padding: 20px, 30px;
+}
+
+.estadistica {
+  width: 100%;
+ background-color: #5555551f;
+  padding: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+ul {
+  display: flex;
+  
+  align-items: flex-start;
+  
+}
+h3 {
+
+}
+
+/* .cajaseleccionsection {
   width: 100%;
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
-}
+} */
 
-.cajaseleccionform {
-  width: 90%;
-  padding: 10px;
+.cajaseleccionsection {
+  width: 70%;
+  height: 500px;
+  padding:10px;
   border: 1px solid #dddddd;
   border-radius: 4px;
   background-color: #f9f9f9;
-  justify-content: space-around;  
+/*   justify-content: space-around;   */
 }
 
 fieldset {
@@ -131,6 +167,7 @@ fieldset {
   margin: 0;
   padding: 0;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 }
 
@@ -169,6 +206,43 @@ button:hover {
 br {
   line-height: 24px;
 }
+
+.todo {
+  display: flex;
+  flex-direction: row;
+  padding: 30px, 30px;
+}
+
+.lateral {
+  width: 20%;
+  padding: 50px;
+  background-color: #000000c5;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li a {
+  display: block;
+  padding: 20px;
+  color: #1c1b1b;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: none;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+
 
 
 .color1 {color: #0ffff7;}

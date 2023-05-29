@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { filtradoA, filtradoB, filtradoC, filtradoD, filtradoE} from "./data.js";
+import { filtradoA, filtradoB, filtradoC, filtradoD, filtradoE, sortAZ} from "./data.js";
 // import data from './data/lol/lol.js';
 import data from "./data/countries/countries.js";
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -76,7 +76,7 @@ sortedTimezones.forEach((timezone) => {
 function showCountries(countries) {
   /* const countries = data.countries; */
   const rootElement = document.getElementById("root");
-  rootElement.innerHTML = "";
+  rootElement.innerHTML = " ";
   countries.forEach((country) => {
     const cardElement = document.createElement("div");
     cardElement.classList.add("card");
@@ -112,6 +112,7 @@ function showCountries(countries) {
     cardElement.appendChild(lengText);
     rootElement.appendChild(cardElement);
   });
+  
 }
 
 showCountries(data.countries);
@@ -128,50 +129,36 @@ function filtrandoDatos() {
   const selLanguages = document.getElementById("languageSelect").value;
   const selUtc = document.getElementById("utcSelect").value;
   const selIndep = document.getElementById("indepSelect").value;
-  if (selContinent !== "") {
-    dataCountries = filtradoA(data.countries, selContinent);
-    showCountries(dataCountries);
-    console.log(dataCountries);
-  }
-
+  
   if (selPais !== "") {
     dataCountries = filtradoB(data.countries, selPais);
     showCountries(dataCountries);
     console.log(dataCountries);
-  }
+  
+  } if(selContinent !== "") {
+    dataCountries = filtradoA(data.countries, selContinent);
+    showCountries(dataCountries);
+    console.log(dataCountries);
 
-  if (selLanguages !== "") {
+  } if(selLanguages !== "") {
     dataCountries = filtradoC(data.countries, selLanguages);
     showCountries(dataCountries);
     console.log(dataCountries);
-  }
 
-  if (selUtc !== "") {
+  } if(selUtc !== "") {
     dataCountries = filtradoD(data.countries, selUtc);
     console.log(dataCountries);
     showCountries(dataCountries);
-  }
 
-  if (selIndep !== "") {
+  } if(selIndep !== "") {
     dataCountries = filtradoE(data.countries, selIndep);
     console.log(dataCountries);
     showCountries(dataCountries);
-  }
+  } 
 }
 
+//*********************** FUNCIONES DE ORDENADO **********************//
 
+const dataOrdenada = sortAZ(dataCountries);
+showCountries(dataOrdenada);
 
-
-
-// Obtener el elemento de la imagen
-/* const imagen = document.getElementById("img"); */
-
-// Establecer nuevas dimensiones
-/* const nuevoAncho = 500;
-const nuevoAlto = 200; */
-
-// Cambiar el tamaño de la imagen
-/* imagen.style.width = nuevoAncho + "px";
-imagen.style.height = nuevoAlto + "px"; */
-
-/* console.log(example, data); */
