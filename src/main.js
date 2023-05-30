@@ -72,9 +72,31 @@ sortedTimezones.forEach((timezone) => {
 });
 
 //*********************** PRESENCIA DE TARJETAS EN EL ROOT **********************//
-
 function showCountries(countries) {
-  /* const countries = data.countries; */
+  const rootElement = document.getElementById("root");
+  rootElement.innerHTML = "";
+  countries.forEach((country) => {
+    const cardElement = document.createElement("div");
+    cardElement.classList.add("card");
+    cardElement.addEventListener("click", () => {
+      cardElement.classList.toggle("flipped");
+    });
+
+    const imageElement = document.createElement("img");
+    imageElement.src = country.flags.png;
+
+    const nameElement = document.createElement("p");
+    nameElement.textContent = country.name.common;
+
+    cardElement.appendChild(nameElement);
+    cardElement.appendChild(imageElement);
+    rootElement.appendChild(cardElement);
+  });
+}
+
+showCountries(data.countries);
+ /* function showCountries(countries) {
+
   const rootElement = document.getElementById("root");
   rootElement.innerHTML = " ";
   countries.forEach((country) => {
@@ -87,35 +109,14 @@ function showCountries(countries) {
     const nameElement = document.createElement("p");
     nameElement.textContent = country.name.common;
 
-    const capitalElement = document.createElement("p");
-    capitalElement.textContent = country.capital;
-    const capitalText = document.createTextNode(
-      "Capital: " + capitalElement.textContent
-    );
-
-    const contiElement = document.createElement("p");
-    contiElement.textContent = country.continents;
-    const contiText = document.createTextNode(
-      "Continent: " + contiElement.textContent
-    );
-
-    const lengElement = document.createElement("p");
-    lengElement.textContent = country.languages;
-    const lengText = document.createTextNode(
-      "Language: " + lengElement.textContent
-    );
-
     cardElement.appendChild(nameElement);
     cardElement.appendChild(imageElement);
-    cardElement.appendChild(capitalText);
-    cardElement.appendChild(contiText);
-    cardElement.appendChild(lengText);
     rootElement.appendChild(cardElement);
   });
   
 }
 
-showCountries(data.countries);
+showCountries(data.countries);  */
 
 //*********************** FUNCIONES DE FILTRADO **********************//
 
