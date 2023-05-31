@@ -4,6 +4,8 @@ import { filtradoA, filtradoB, filtradoC, filtradoD, filtradoE, sortAZ, sortZA} 
 import data from "./data/countries/countries.js";
 // import data from './data/rickandmorty/rickandmorty.js';
 
+const countries = data.countries;
+
 //*********************** SELECCIÓN DE PAÍSES **********************//
 
 const countrySelect = document.getElementById("countrySelect");
@@ -95,7 +97,7 @@ function showCountries(countries) {
 }
 
 showCountries(data.countries);
- /* function showCountries(countries) {
+/* function showCountries(countries) {
 
   const rootElement = document.getElementById("root");
   rootElement.innerHTML = " ";
@@ -176,3 +178,99 @@ function ordenandoDatos() {
 }
 
 
+// Función para buscar en claves adicionales
+function searchInCountryKeys(country, searchTerm) {
+  // Agregar las claves adicionales para buscar aquí
+  const keysToSearch = ["capital","subregion", "area"];
+    
+  for (let i = 0; i < keysToSearch.length; i++) {
+    const key = keysToSearch[i];
+    
+    if (country[key] && country[key].toString().toLowerCase().includes(searchTerm)) {
+      return true;
+    }
+  }
+    
+  // Buscar en la clave "languages"
+  if (country.languages) {
+    for (const langKey in country.languages) {
+      const language = country.languages[langKey].toString().toLowerCase();
+      if (language.includes(searchTerm)) {
+        return true;
+      }
+    }
+  }
+  // Buscar en el rango de la clave "population"
+  if (searchTerm.includes(">")) {
+    const minPopulation = searchTerm.substring(1);
+    if (country.population && parseInt(country.population) > parseInt(minPopulation)) {
+      return true;
+    }
+  } else if (searchTerm.includes("<")) {
+    const maxPopulation = searchTerm.substring(1);
+    if (country.population && parseInt(country.population) < parseInt(maxPopulation)) {
+      return true;
+    }
+  } else if (searchTerm.includes("-")) {
+    const rangeValues = searchTerm.split("-");
+    const minRange = rangeValues[0];
+    const maxRange = rangeValues[1];
+    if (
+      country.population &&
+        parseInt(country.population) >= parseInt(minRange) &&
+        parseInt(country.population) <= parseInt(maxRange)
+    ) {
+      return true;
+    }
+  }
+  
+  return false;
+}
+  
+// Obtener elementos del DOM
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("custom-button");
+const searchResults = document.getElementById("search-results");
+  
+// Función de búsqueda
+function search() {
+  const searchTerm = searchInput.value.toLowerCase();
+  searchResults.innerHTML = "";
+
+  for (let i = 0; i < countries.length; i++) {
+    const country = countries[i];
+    const countryName = country.name.common;
+
+    // Buscar en el nombre del país y en otras claves
+    if (countryName.includes(searchTerm) || searchInCountryKeys(country, searchTerm)) {
+      const result = document.createElement("div");
+      result.classList.add("country-result");
+      
+      const table = document.createElement("table");
+      const row = table.insertRow();
+      
+      const countryNameCell = row.insertCell();
+      countryNameCell.innerHTML = "<h2>" + countryName + "</h2>";
+      countryNameCell.colSpan = 2;
+
+      for (const prop in country) {
+        if (typeof country[prop] !== "object") {
+          const newRow = table.insertRow();
+          const propCell = newRow.insertCell();
+          const valueCell = newRow.insertCell();
+          
+          propCell.innerHTML = "<strong>" + prop + "</strong>";
+          valueCell.innerHTML = country[prop];
+        }
+      }
+
+      result.appendChild(table);
+      searchResults.appendChild(result);
+    }
+  }
+}
+
+  
+// Evento click del botón de búsqueda
+searchButton.addEventListener("click", search);
+  
