@@ -226,7 +226,7 @@ function searchInCountryKeys(country, searchTerm) {
   
 // Obtener elementos del DOM
 const searchInput = document.getElementById("search-input");
-const searchButton = document.getElementById("custom-button");
+const searchButton = document.getElementById("search-button");
 const searchResults = document.getElementById("search-results");
   
 // Función de búsqueda

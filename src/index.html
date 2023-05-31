@@ -9,16 +9,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet"> <!-- *Letra del nombre de país -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
   <header class="titulo">
     <h1>Our World</h1>
-  </header>
-  <input type="text" id="search-input" placeholder="Ingrese un país o clave"> 
-  <div id="custom-button">Buscar</div>
-  <!-- <button id="search-button">Buscar</button>  -->
-        <div id="search-results"> </div> 
+  </header> 
   <main>
     <div class="cajaprincipal">
       <div class="welcome">
@@ -34,10 +31,13 @@
         <li><a href="#">CONTACT US</a></li>
         <li><a href="#">DUBTS</a></li>
         <li><a href="https://www.worldwildlife.org/descubre-wwf/historias/juntos-salvemos-el-planeta">SAVE THE PLANET</a></li>
+        <input type="text" id="search-input" placeholder="Enter a country or keyword"> 
+        <button id="search-button" type="submit"><i class="material-icons">search</i></button>
+  <!-- <button id="search-button">Buscar</button>  -->
     </ul>
-    
     </nav>
   </div>
+  <div id="search-results"> </div>
     <div class="todo">
       <aside class="lateral">
         <section class="cajaseleccionsection">
