@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { filtradoA, filtradoB, filtradoC, filtradoD, filtradoE, sortAZ} from "./data.js";
+import { filtradoA, filtradoB, filtradoC, filtradoD, filtradoE, sortAZ, sortZA} from "./data.js";
 // import data from './data/lol/lol.js';
 import data from "./data/countries/countries.js";
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -160,6 +160,19 @@ function filtrandoDatos() {
 
 //*********************** FUNCIONES DE ORDENADO **********************//
 
-const dataOrdenada = sortAZ(dataCountries);
-showCountries(dataOrdenada);
+const sortButton = document.getElementById("sortButton");
+sortButton.addEventListener("click", ordenandoDatos);
+
+function ordenandoDatos() {
+  const selectedOption = document.getElementById("ordenar").value;
+
+  if (selectedOption === "1") {
+    const dataAz = sortAZ(dataCountries);
+    return showCountries(dataAz);
+  } else if (selectedOption === "2") {
+    const dataZa = sortZA(dataCountries);
+    return showCountries(dataZa);
+  }
+}
+
 
