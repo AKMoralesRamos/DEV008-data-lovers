@@ -208,7 +208,7 @@ br {
 
 .lateral {
   width: 20%;
- 
+  height: 100%;
   /* padding: 50px; */
   background-color: #000000c5;
   display: flex;
@@ -264,3 +264,108 @@ background-color:#5555551d;
 .color5 {color: #d4b42e;}
 /* rgba(0, 0, 0, 0.833); */
 /* bisque */
+
+
+/* Estilos para el contenedor de países */
+.countries-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+/* Estilos para cada país */
+.country {
+  width: 25%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Estilos para la última bandera en cada fila */
+.last-in-row {
+  margin-right: 0;
+}
+
+/* Estilos para las banderas */
+.country img {
+  width: 100%;
+  max-width: 100px; /* Ajusta el tamaño máximo de las banderas según tus necesidades */
+  height: auto;
+}
+/* Estilos para la tarjeta de detalles */
+.card-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+  max-width: 400px;
+}
+
+.card-content p {
+  margin: 0;
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* .cajaseleccionsection {
+width: 100%;
+margin-bottom: 20px;
+display: flex;
+justify-content: center;
+} */
+
+.search-results { 
+margin-top: 20px; 
+}
+
+#custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+#custom-button:hover {
+  background-color: #0056b3;
+}
+
+#custom-button:active {
+  background-color: #003366;
+}
+
+.country-result {
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.country-result h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #000000;
+}
+
+.country-result table {
+  width: 100%;
+}
+
+.country-result th {
+  text-align: left;
+  padding: 5px;
+}
+
+.country-result td {
+  padding: 5px;
+}
+
+.country-result strong {
+  font-weight: bold;
+}
+
