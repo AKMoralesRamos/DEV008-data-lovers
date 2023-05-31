@@ -74,6 +74,7 @@ sortedTimezones.forEach((timezone) => {
 });
 
 //*********************** PRESENCIA DE TARJETAS EN EL ROOT **********************//
+
 function showCountries(countries) {
   const rootElement = document.getElementById("root");
   rootElement.innerHTML = "";
@@ -81,7 +82,7 @@ function showCountries(countries) {
     const cardElement = document.createElement("div");
     cardElement.classList.add("card");
     cardElement.addEventListener("click", () => {
-      cardElement.classList.toggle("flipped");
+      openModal(country);
     });
 
     const imageElement = document.createElement("img");
@@ -97,28 +98,25 @@ function showCountries(countries) {
 }
 
 showCountries(data.countries);
-/* function showCountries(countries) {
 
-  const rootElement = document.getElementById("root");
-  rootElement.innerHTML = " ";
-  countries.forEach((country) => {
-    const cardElement = document.createElement("div");
-    cardElement.classList.add("card");
+//*********************** FUNCIONES PARA MODAL **********************//
 
-    const imageElement = document.createElement("img");
-    imageElement.src = country.flags.png;
+function openModal(country) {
+  const modal = document.getElementById("myModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalImage = document.getElementById("modalImage");
 
-    const nameElement = document.createElement("p");
-    nameElement.textContent = country.name.common;
-
-    cardElement.appendChild(nameElement);
-    cardElement.appendChild(imageElement);
-    rootElement.appendChild(cardElement);
-  });
-  
+  modalTitle.textContent = country.name.official;
+  modalImage.src = country.flags.png;
+  modal.style.display = "block";
 }
 
-showCountries(data.countries);  */
+window.onclick = function(event) {
+  const modal = document.getElementById("myModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
 
 //*********************** FUNCIONES DE FILTRADO **********************//
 
@@ -174,6 +172,7 @@ function ordenandoDatos() {
   }
 }
 
+//*********************** FUNCIONES DE BÚSQUEDA GENERAL **********************//
 
 // Función para buscar en claves adicionales
 function searchInCountryKeys(country, searchTerm) {
