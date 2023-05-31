@@ -140,17 +140,14 @@ function filtrandoDatos() {
     dataCountries = filtradoA(data.countries, selContinent);
     showCountries(dataCountries);
     console.log(dataCountries);
-
   } if(selLanguages !== "") {
     dataCountries = filtradoC(data.countries, selLanguages);
     showCountries(dataCountries);
     console.log(dataCountries);
-
   } if(selUtc !== "") {
     dataCountries = filtradoD(data.countries, selUtc);
     console.log(dataCountries);
     showCountries(dataCountries);
-
   } if(selIndep !== "") {
     dataCountries = filtradoE(data.countries, selIndep);
     console.log(dataCountries);

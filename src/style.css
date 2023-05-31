@@ -32,6 +32,9 @@ h1 {
   width: 65%;
   padding: 10px 10px;
   border: 0px;
+  background:url("azul.jpg");
+ /* background: linear-gradient(to bottom, #70C6C6, #266868); */
+  /* background-color: #5e8295be; */
   display: flex;
   flex-wrap: wrap; 
   justify-content: center; 
@@ -42,8 +45,9 @@ h1 {
   width: 100px;
   height: 180px;
   margin: 30px;
-  padding: 20px 50px;
-  background-color: #d48383;
+  padding: 10px 20px;
+  background-color: #e0e8e863;
+  filter: brightness(.9);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,6 +75,7 @@ h1 {
   justify-content: center;
   box-shadow: inset;
   box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.573);
+  filter: brightness(1);
 }
 
 .card img:hover {
@@ -80,11 +85,12 @@ h1 {
 
 p {
   font-size: 18px;
-  padding: 0px 30px;
+  padding: 0px 10px;
   justify-content: center;
+  color: #ffffff;
   font-family: 'Fira Sans', sans-serif;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.833);
+  /* font-weight: bold; */
+  /* color: rgba(0, 0, 0, 0.833); */
 }
 
 body {
@@ -97,26 +103,29 @@ body {
   height: 400px;
   margin: 0 auto;
   padding: 20px;
-  background:url("mapamundi3.jpg");
-  background-size: cover;
+  background:url("ya.jpg");
+  background-size:cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: brightness(1);
+  filter: brightness(.7);
 }
 
 .welcome {
-  background-color:#1c1c1c99;
+  background-color:#24232300;
   border-radius: 10px;
   padding: 20px;
 }
 
 h2 {
-  font-size:25px;
+  font-family:"Tahoma";
+  font-weight: bolder;
+  font-size:28px;
   color:#FFFFFF;
   display: flex;
   justify-content: center;
   padding: 20px, 30px;
+  filter: brightness(3);
 }
 
 h3 {
@@ -204,6 +213,7 @@ br {
   background-color: #000000c5;
   display: flex;
   justify-content: center;
+  filter: brightness(1.5);
 }
 
 nav ul li a {
