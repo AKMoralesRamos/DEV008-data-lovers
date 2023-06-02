@@ -10,11 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet"> <!-- *Letra del nombre de país -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
-
 <body>
   <header class="titulo">
-    <h1>Our World</h1>
+    <h1>GlobaLexplorer</h1>
   </header> 
   <main>
     <div class="cajaprincipal">
@@ -23,24 +23,21 @@
       <h2>Learn information about the countries of the world.</h2>
     </div>
     </div>
-  <div class="estadistica">
-    <h3></h3>
-    <nav>
+    <nav class="estadistica">
       <ul>
         <li><a href="#">HOME</a></li>
         <li><a href="#">CONTACT US</a></li>
         <li><a href="#">DUBTS</a></li>
         <li><a href="https://www.worldwildlife.org/descubre-wwf/historias/juntos-salvemos-el-planeta">SAVE THE PLANET</a></li>
-        <input type="text" id="search-input" placeholder="Enter a country or keyword"> 
+        <input type="text" id="search-input" placeholder="Enter a country, capital or continent" title="Enter a country, capital or continent"> 
         <button id="search-button" type="submit"><i class="material-icons">search</i></button>
     </ul>
     </nav>
-  </div>
-  <div id="search-results"> </div>
+  <div id="search-results"></div>
   <div id="myModal" class="modal">
     <div class="modal-content">
       <h3 id="modalTitle"></h3>
-      <img id="modalImage" src="" alt="">
+      <img id="modalImage" alt="Countries' flag">
     </div>
   </div>
     <div class="todo">
@@ -57,7 +54,7 @@
           <fieldset>
            <legend>Select one or more options</legend>
            <select name="continenteSelect" id="continenteSelect">
-           <option style="" value="" disabled selected>Continents</option>
+           <option value="" disabled selected>Continents</option>
            <option value="America">America</option>
            <option value="Europe">Europe</option>
            <option value="Asia">Asia</option>
@@ -119,6 +116,7 @@
   </article>
 </div>
   <script src="main.js" type="module"></script>
+  </main>
 </body>
 <aside></aside>
 

@@ -246,7 +246,7 @@ function search() {
       const row = table.insertRow();
       
       const countryNameCell = row.insertCell();
-      countryNameCell.innerHTML = "<h2>" + countryName + "</h2>";
+      countryNameCell.innerHTML = "<h3>" + countryName + "</h3>";
       countryNameCell.colSpan = 2;
 
       for (const prop in country) {
@@ -269,4 +269,6 @@ function search() {
   
 // Evento click del botón de búsqueda
 searchButton.addEventListener("click", search);
+
+
   
