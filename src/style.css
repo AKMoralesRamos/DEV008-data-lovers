@@ -258,7 +258,7 @@ br {
   height: 90px;
   margin: 18px;
   padding: 10px 10px;
-  background-color: #e0e8e800;
+  background-color: #229898b9;
   filter: brightness(0.9);
   display: flex;
   flex-direction: column;
@@ -273,14 +273,14 @@ br {
 }
 
 p {
-  font-size: 10px;
+  font-size: 8px;
   justify-content: center;
   color: #ffffff;
   font-family: "Fira Sans", sans-serif;
 }
 
 .card img {
-  width: 140%;
+  width: 23%;
   height: auto;
   border: 1px solid #5a5a5a;
   object-fit: cover;
