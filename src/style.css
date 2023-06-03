@@ -1,3 +1,4 @@
+@media only screen and (min-width: 1024px) {
 html {
     height: 100%;
     max-width: 100%;
@@ -340,7 +341,43 @@ html {
     height: auto;
     margin-right: 10px;
   }
+}
+
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+
+    h1 {
+      font-family: "Grobold";
+      font-size: 10px;
+      font-weight: bolder;
+      color: rgba(0, 0, 0, 0.833);
+    }
+/*********************************Caja de imagen y bienvenida***********************************/
   
+.cajaprincipal {
+  width: 100%;
+  height: 250px;
+  margin: 0 auto;
+  padding: 15px;
+  background: url(oneecell.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: brightness(0.7);
+}
 
+h2 {
+  font-family: "Tahoma";
+  font-weight: bolder;
+  font-size: 12px;
+  border-color: #000000;
+  color: #c4b836;
+  display: flex;
+  justify-content: center;
+  padding: 20px, 30px;
+  text-shadow: -1px -1px 0 #14280d, 1px -1px 0 #14280d, -1px 1px 0 #14280d,
+    1px 1px 0 #14280d;
+  filter: brightness(3);
+}
 
-
+}
