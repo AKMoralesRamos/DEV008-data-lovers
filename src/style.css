@@ -1,15 +1,6 @@
 @media only screen and (min-width: 480px) {
 
-  html {
-    height: 100%;
-    max-width: 100%;
-  }
   
-  body {
-    max-width: 100%;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-  }
 
   /***********************************Título de Globalexplorer********************************/
 
@@ -33,18 +24,13 @@ h1 {
   height: 250px;
   margin: 0 auto;
   padding: 20px;
-  background: url("oneecel.jpg");
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: brightness(0.7);
+  background-color: #1a361053
 }
 
 h2 {
   font-family: "Tahoma";
   font-weight: bolder;
-  font-size: 16px;
+  font-size: 10px;
   border-color: #000000;
   color: #c4b836;
   display: flex;
@@ -173,8 +159,7 @@ nav ul li {
 
 .todo {
   display: flex;
-  flex-direction: row;
-  padding: 30px, 30px;
+  flex-direction: column;
   background-color: #ffffff;
 }
 
