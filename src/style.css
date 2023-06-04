@@ -272,10 +272,6 @@ br {
   transition: transform 0.3s ease;
 }
 
-.card:hover {
-  transform: scale(1.5);
-}
-
 p {
   font-size: 10px;
   justify-content: center;
@@ -293,10 +289,6 @@ p {
   box-shadow: inset;
   box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.573);
   filter: brightness(1);
-}
-
-.card img:hover {
-  transform: scale(1.1);
 }
 
 /************************Contenedor para info adicional y artículos************************/
