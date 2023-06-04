@@ -120,54 +120,44 @@ function addCardInfo(label, value) {
 // Función para abrir el modal y mostrar los datos del país
 function openModal(country) {
   const modal = document.getElementById("myModal");
-  const modalTitle = document.getElementById("modalTitle");
+  /* const modalTitle = document.getElementById("modalTitle"); */
   const modalImage = document.getElementById("modalImage");
   const cardTable = document.getElementById("cardTable");
-
-  //Función para cerrar Modal
-  const closeButton = document.querySelector(".close");
-  closeButton.addEventListener("click", closeModal);
-
-  function closeModal() {
-    const modal = document.getElementById("myModal");
-    modal.style.display = "none";
-  }
-
 
   // Limpia el contenido previo de la tabla
   cardTable.innerHTML = "";
 
   // Agrega la información del país a la tabla
-  addCardInfo("Nombre Común", country.name.common);
-  addCardInfo("Nombre Oficial", country.name.official);
+  addCardInfo("Common Name", country.name.common);
+  addCardInfo("Official Name", country.name.official);
   addCardInfo("TLD", country.tld.join(", "));
-  addCardInfo("Independiente", country.independent ? "Sí" : "No");
+  addCardInfo("Independent", country.independent ? "Yes" : "No");
   addCardInfo("Capital", country.capital.join(", "));
-  addCardInfo("Subregión", country.subregion);
+  addCardInfo("Subregion", country.subregion);
   
   // Agrega los idiomas disponibles a la tabla
   const languages = Object.entries(country.languages);
   languages.forEach(([code, name]) => {
-    addCardInfo("Idioma (" + code + ")", name);
+    addCardInfo("Language (" + code + ")", name);
   });
   // Verificar si la clave 'borders' existe antes de acceder a ella
   if (country.borders) {
-    addCardInfo("Fronteras", country.borders.join(", "));
+    addCardInfo("Borders", country.borders.join(", "));
   } else {
-    addCardInfo("Fronteras", "No se encontraron fronteras");
+    addCardInfo("Borders", "No borders found");
   }
-  addCardInfo("Área", country.area);
-  addCardInfo("Población", country.population);
+  addCardInfo("Area", country.area);
+  addCardInfo("Population", country.population);
   // Iterar sobre las claves del objeto country.gini
   for (const year in country.gini) {
     addCardInfo(`Gini (${year})`, country.gini[year]);
   }
   addCardInfo("FIFA", country.fifa);
-  addCardInfo("Zonas Horarias", country.timezones.join(", "));
-  addCardInfo("Continentes", country.continents.join(", "));
+  addCardInfo("Time Zones", country.timezones.join(", "));
+  addCardInfo("Continent", country.continents.join(", "));
 
   // Asigna la imagen y título del modal
-  modalTitle.textContent = country.name.common;
+  /* modalTitle.textContent = country.name.common; */
   modalImage.src = country.flags.png;
 
   // Muestra el modal
@@ -253,7 +243,7 @@ function searchInCountryKeys(country, searchTerm) {
   for (let i = 0; i < keysToSearch.length; i++) {
     const key = keysToSearch[i];
     
-    if (country[key] && country[key].toString().toLowerCase().includes(searchTerm)) {
+    if (country[key] && country[key].toString().toLowerCase().trim().includes(searchTerm)) {
       return true;
     }
   }
@@ -261,7 +251,7 @@ function searchInCountryKeys(country, searchTerm) {
   // Buscar en la clave "languages"
   if (country.languages) {
     for (const langKey in country.languages) {
-      const language = country.languages[langKey].toString().toLowerCase();
+      const language = country.languages[langKey].toString().trim().toLowerCase();
       if (language.includes(searchTerm)) {
         return true;
       }

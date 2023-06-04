@@ -8,128 +8,135 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet"> <!-- *Letra del nombre de país -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+  <!-- *Letra del nombre de país -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
+
 <body>
   <div class="contenedor">
-  <header class="titulo">
-    <h1>GlobaLexplorer.com</h1>
-  </header> 
-  <main>
-    <div class="cajaprincipal">
-      <div class="welcome">
-      <h2>Welcome!</h2>
-      <h2>Search information about the countries of the world.</h2>
-    </div>
-    </div>
-    <nav class="navegacion">
-      <ul>
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">CONTACT US</a></li>
-        <li><a href="https://www.worldwildlife.org/descubre-wwf/historias/juntos-salvemos-el-planeta">SAVE THE PLANET</a></li>
-        <input type="text" id="search-input" placeholder="Enter a country, capital or continent" title="Enter a country, capital or continent"> 
-        <button id="search-button" type="submit"><i class="material-icons">search</i></button>
-    </ul>
-    </nav>
-    <div id="search-results"></div>
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3 id="modalTitle" class="mi-pais"></h3>
-        <div class="card-info">
-          <img id="modalImage" alt="Countries' flag" class="flag-image">
-          <table id="cardTable"> 
-          </table>
+    <header class="titulo">
+      <h1>GlobaLexplorer.com</h1>
+    </header>
+    <main>
+      <div class="cajaprincipal">
+        <div class="welcome" id="home">
+          <h2>Welcome!</h2>
+          <h2>Search information about the countries of the world.</h2>
         </div>
       </div>
-    </div>
-    <div class="todo">
-      <aside class="lateral">
-        <section class="cajaseleccionsection">
-          <fieldset>
-          <legend>Select a country</legend>
-          <select name="countrySelect" id="countrySelect">
-           <option value="" disabled selected>Countries</option>
-           </select>
-          </fieldset>
-          <br>
+      <nav class="navegacion">
+        <ul>
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#footer">CONTACT US</a></li>
+          <li><a href="https://www.worldwildlife.org/descubre-wwf/historias/juntos-salvemos-el-planeta"
+              target="_blank">SAVE THE PLANET</a></li>
+          <input type="text" id="search-input" placeholder="Enter a country, capital or continent"
+            title="Enter a country, capital or continent">
+          <button id="search-button" type="submit"><i class="material-icons">search</i></button>
+        </ul>
+      </nav>
+      <div id="search-results"></div>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <!-- <h3 id="modalTitle" class="mi-pais"></h3> -->
+          <div class="card-info">
+            <img id="modalImage" alt="Countries' flag" class="flag-image">
             <br>
-          <fieldset>
-           <legend>Select one or more options</legend>
-           <select name="continenteSelect" id="continenteSelect">
-           <option value="" disabled selected>Continents</option>
-           <option value="America">America</option>
-           <option value="Europe">Europe</option>
-           <option value="Asia">Asia</option>
-           <option value="Africa">Africa</option>
-           <option value="Oceania">Oceania</option>
-           <option value="Antarctica">Antarctica</option>
-         </select>
-         <select name="languageSelect" id="languageSelect">
-           <option value="" disabled selected>Languages</option>
-         </select>
-         <select name="utcSelect" id="utcSelect">
-           <option value="" disabled selected>Time zones</option>
-         </select>
-         <select name="indepSelect" id="indepSelect">
-           <option value="" disabled selected>Independent Countries</option>
-           <option value="true">Yes</option>
-           <option value="false">No</option>
-         </select>  
-         <br>
-         <br>     
-         <button type="submit" id="filtrar">Search</button>
-         <br>
-         <br>
-        <fieldset>
-          <legend>Select the sorting method</legend>
-          <select name="ordenar" id="ordenar">
-            <option value="" id="" disabled selected>Sorting method</option>
-            <option value="1" id="1">A to Z</option>
-            <option value="2" id="2">Z to A</option>
-          </select>
-          <br>
-         <br>
-         <button type="button" id="sortButton">Sort</button>
-         <br>
-         <br>
-        </fieldset>
-        <br>
-        <br>
-       </fieldset>
-       <br>
-       <br>
-   </section>
-  </aside>
-  <div id="root"></div>
-  <article class="infoAdicional">
-    <h3>Inform yourself and take action!</h3>
-    <div class="articulo">
-      <a href="https://www.mdpi.com/2311-5629/9/1/1" target="_blank">
-        <img src="agricultura.png" alt="Preview of Agriculture Activity">
-        <h5>Assessing the Effect of Intensive Agriculture and Sandy Soil Properties on Groundwater Contamination</h5>
-      </a>
-    </div>
-    <div class="articulo">
-      <a href="https://www.sciencedirect.com/science/article/abs/pii/S0956053X2200575X" target="_blank">
-        <img src="waste.jpg" alt="Preview of China's waste production">
-        <h5>How does the “Zero-waste City” strategy contribute to carbon footprint reduction in China?</h5>
-      </a>
-    </div>
-    <div class="articulo">
-      <a href="https://www.sciencedirect.com/science/article/pii/S2949753123000061" target="_blank">
-        <img src="verde.png" alt="Preview of green development">
-        <h5>Toward sustainable and green development in Chile: Dynamic influences of carbon emission reduction variables</h5>
-      </a>
-    </div>
-  </article>
-</div>
-  <script src="main.js" type="module"></script>
-  </main>
-</div>
+            <table id="cardTable">
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="todo">
+        <aside class="lateral">
+          <section class="cajaseleccionsection">
+            <fieldset>
+              <legend>Select a country</legend>
+              <select name="countrySelect" id="countrySelect">
+                <option value="" disabled selected>Countries</option>
+              </select>
+            </fieldset>
+            <br>
+            <br>
+            <fieldset>
+              <legend>Select one or more options</legend>
+              <select name="continenteSelect" id="continenteSelect">
+                <option value="" disabled selected>Continents</option>
+                <option value="America">America</option>
+                <option value="Europe">Europe</option>
+                <option value="Asia">Asia</option>
+                <option value="Africa">Africa</option>
+                <option value="Oceania">Oceania</option>
+                <option value="Antarctica">Antarctica</option>
+              </select>
+              <select name="languageSelect" id="languageSelect">
+                <option value="" disabled selected>Languages</option>
+              </select>
+              <select name="utcSelect" id="utcSelect">
+                <option value="" disabled selected>Time zones</option>
+              </select>
+              <select name="indepSelect" id="indepSelect">
+                <option value="" disabled selected>Independent Countries</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+              <br>
+              <br>
+              <button type="submit" id="filtrar">Search</button>
+              <br>
+              <br>
+              <fieldset>
+                <legend>Select the sorting method</legend>
+                <select name="ordenar" id="ordenar">
+                  <option value="" id="" disabled selected>Sorting method</option>
+                  <option value="1" id="1">A to Z</option>
+                  <option value="2" id="2">Z to A</option>
+                </select>
+                <br>
+                <br>
+                <button type="button" id="sortButton">Sort</button>
+                <br>
+                <br>
+              </fieldset>
+              <br>
+              <br>
+            </fieldset>
+            <br>
+            <br>
+          </section>
+        </aside>
+        <div id="root"></div>
+        <article class="infoAdicional">
+          <h3>Inform yourself and take action!</h3>
+          <div class="articulo">
+            <a href="https://www.mdpi.com/2311-5629/9/1/1" target="_blank">
+              <img src="agricultura.png" alt="Preview of Agriculture Activity">
+              <h5>Assessing the Effect of Intensive Agriculture and Sandy Soil Properties on Groundwater Contamination
+              </h5>
+            </a>
+          </div>
+          <div class="articulo">
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0956053X2200575X" target="_blank">
+              <img src="waste.jpg" alt="Preview of China's waste production">
+              <h5>How does the “Zero-waste City” strategy contribute to carbon footprint reduction in China?</h5>
+            </a>
+          </div>
+          <div class="articulo">
+            <a href="https://www.sciencedirect.com/science/article/pii/S2949753123000061" target="_blank">
+              <img src="verde.png" alt="Preview of green development">
+              <h5>Toward sustainable and green development in Chile: Dynamic influences of carbon emission reduction
+                variables</h5>
+            </a>
+          </div>
+        </article>
+      </div>
+      <script src="main.js" type="module"></script>
+    </main>
+  </div>
+  <footer id="footer">
+    <span>Daniela Castellano y Karen Morales DL3 - Laboratoria - Frontend Development</span>
+  </footer>
 </body>
-<aside></aside>
-
 </html>
