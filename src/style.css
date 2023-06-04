@@ -92,7 +92,7 @@ nav ul {
   max-height: 20px;
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 10px;
 }
 
 nav ul li {
@@ -184,7 +184,7 @@ nav ul li {
   
 .lateral {
   width: 100%;
-  height: auto;
+  height: 140%;
   background-color: #000000c5;
   display: flex;
   justify-content: center;
