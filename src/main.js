@@ -101,22 +101,93 @@ showCountries(data.countries);
 
 //*********************** FUNCIONES PARA MODAL **********************//
 
+// Función para agregar información a la tabla
+function addCardInfo(label, value) {
+  const table = document.getElementById("cardTable");
+  const row = document.createElement("tr");
+
+  const labelCell = document.createElement("th");
+  labelCell.textContent = label + ":";
+  row.appendChild(labelCell);
+
+  const valueCell = document.createElement("td");
+  valueCell.textContent = value;
+  row.appendChild(valueCell);
+
+  table.appendChild(row);
+}
+
+// Función para abrir el modal y mostrar los datos del país
 function openModal(country) {
   const modal = document.getElementById("myModal");
   const modalTitle = document.getElementById("modalTitle");
   const modalImage = document.getElementById("modalImage");
+  const cardTable = document.getElementById("cardTable");
 
-  modalTitle.textContent = country.name.official;
+  //Función para cerrar Modal
+  const closeButton = document.querySelector(".close");
+  closeButton.addEventListener("click", closeModal);
+
+  function closeModal() {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
+  }
+
+
+  // Limpia el contenido previo de la tabla
+  cardTable.innerHTML = "";
+
+  // Agrega la información del país a la tabla
+  addCardInfo("Nombre Común", country.name.common);
+  addCardInfo("Nombre Oficial", country.name.official);
+  addCardInfo("TLD", country.tld.join(", "));
+  addCardInfo("Independiente", country.independent ? "Sí" : "No");
+  addCardInfo("Capital", country.capital.join(", "));
+  addCardInfo("Subregión", country.subregion);
+  
+  // Agrega los idiomas disponibles a la tabla
+  const languages = Object.entries(country.languages);
+  languages.forEach(([code, name]) => {
+    addCardInfo("Idioma (" + code + ")", name);
+  });
+  // Verificar si la clave 'borders' existe antes de acceder a ella
+  if (country.borders) {
+    addCardInfo("Fronteras", country.borders.join(", "));
+  } else {
+    addCardInfo("Fronteras", "No se encontraron fronteras");
+  }
+  addCardInfo("Área", country.area);
+  addCardInfo("Población", country.population);
+  // Iterar sobre las claves del objeto country.gini
+  for (const year in country.gini) {
+    addCardInfo(`Gini (${year})`, country.gini[year]);
+  }
+  addCardInfo("FIFA", country.fifa);
+  addCardInfo("Zonas Horarias", country.timezones.join(", "));
+  addCardInfo("Continentes", country.continents.join(", "));
+
+  // Asigna la imagen y título del modal
+  modalTitle.textContent = country.name.common;
   modalImage.src = country.flags.png;
+
+  // Muestra el modal
   modal.style.display = "block";
 }
 
+// Función para cerrar el modal
+function closeModal() {
+  const modal = document.getElementById("myModal");
+  modal.style.display = "none";
+}
+
+// Evento para cerrar el modal al hacer clic fuera del contenido
 window.onclick = function(event) {
   const modal = document.getElementById("myModal");
   if (event.target === modal) {
-    modal.style.display = "none";
+    closeModal();
   }
-}
+};
+
 
 //*********************** FUNCIONES DE FILTRADO **********************//
 
