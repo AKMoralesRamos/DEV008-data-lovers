@@ -2042,6 +2042,9 @@ export default {
         ".mo"
       ],
       "independent": false,
+      "capital": [
+        "Macau City"
+      ],
       "subregion": "Eastern Asia",
       "languages": {
         "por": "Portuguese",
@@ -2623,6 +2626,10 @@ export default {
         "common": "Kosovo",
         "official": "Republic of Kosovo"
       },
+      "tld": [
+        ".xk"
+      ],
+      "independent": true,
       "capital": [
         "Pristina"
       ],
@@ -3142,36 +3149,6 @@ export default {
         "png": "https://flagcdn.com/w320/bw.png",
         "svg": "https://flagcdn.com/bw.svg",
         "alt": "The flag of Botswana has a light blue field with a white-edged black horizontal band across its center."
-      }
-    },
-    {
-      "name": {
-        "common": "Antarctica",
-        "official": "Antarctica"
-      },
-      "tld": [
-        ".aq"
-      ],
-      "independent": false,
-      "area": 14000000,
-      "flag": "🇦🇶",
-      "population": 1000,
-      "timezones": [
-        "UTC-03:00",
-        "UTC+03:00",
-        "UTC+05:00",
-        "UTC+06:00",
-        "UTC+07:00",
-        "UTC+08:00",
-        "UTC+10:00",
-        "UTC+12:00"
-      ],
-      "continents": [
-        "Antarctica"
-      ],
-      "flags": {
-        "png": "https://flagcdn.com/w320/aq.png",
-        "svg": "https://flagcdn.com/aq.svg"
       }
     },
     {
@@ -5216,6 +5193,9 @@ export default {
         ".bv"
       ],
       "independent": false,
+      "capital": [
+        "Not Applicable"
+      ],
       "languages": {
         "nor": "Norwegian"
       },
@@ -7533,6 +7513,9 @@ export default {
         ".aq"
       ],
       "independent": false,
+      "capital": [
+        "Not Applicable"
+      ],
       "languages": {
         "eng": "English"
       },

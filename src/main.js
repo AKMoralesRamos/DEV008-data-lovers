@@ -212,8 +212,8 @@ function filtrandoDatos() {
     if (dataCountries.length > 0) {
       showCountries(dataCountries);
     } else {
-      const errorMessage = "Oops!, there are no countries with the options you selected, try others";
-      document.getElementById("root").textContent = errorMessage;
+      const errorMessage = "Oops!, there are no countries with the options you selected, try others.";
+      document.getElementById("root").innerHTML = `<div id="error-message" class="error">${errorMessage}</div>`;
     }
   }
 }

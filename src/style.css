@@ -261,6 +261,7 @@
 
   #root {
     width: 100%;
+    min-height: 100%;
     border: 0px;
     background: url("azul.jpg");
     display: flex;
@@ -301,6 +302,15 @@
     box-shadow: inset;
     box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.573);
     filter: brightness(1);
+  }
+
+  .error {
+    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 20px;
+    margin: 20px;
   }
 
   /************************Contenedor para info adicional y artículos************************/
@@ -667,6 +677,15 @@
 
   .card img:hover {
     transform: scale(1.1);
+  }
+
+  .error {
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 20px;
+    margin: 20px;
   }
 
   /************************Contenedor para info adicional y artículos************************/
