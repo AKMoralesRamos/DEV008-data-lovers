@@ -261,6 +261,7 @@
 
   #root {
     width: 100%;
+    min-height: 100%;
     border: 0px;
     background: url("azul.jpg");
     display: flex;
@@ -301,6 +302,15 @@
     box-shadow: inset;
     box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.573);
     filter: brightness(1);
+  }
+
+  .error {
+    text-align: center;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 20px;
+    margin: 20px;
   }
 
   /************************Contenedor para info adicional y artículos************************/
@@ -669,6 +679,15 @@
     transform: scale(1.1);
   }
 
+  .error {
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 20px;
+    margin: 20px;
+  }
+
   /************************Contenedor para info adicional y artículos************************/
 
   .infoAdicional {
@@ -719,6 +738,8 @@
   }
 }
 
+/**Modal Graficos****/
+
  #chartModal {
   display: none;
   position: fixed;
@@ -739,34 +760,3 @@
   width: 80%;
   max-width: 800px;
 } 
-
-/* 
-.full-screen-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-}
-
-.custom-modal-content {
-  width: 80%;
-  max-width: 800px; /* Puedes ajustar el tamaño máximo del modal según tus necesidades 
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  color: #aaa;
-  cursor: pointer;
-} */

@@ -1,7 +1,11 @@
-import { filtradoA, filtradoB, filtradoC, filtradoD, filtradoE, sortAZ, sortZA} from "./data.js";
-/* import Chart from 'chart.js/auto'; */
+/* eslint-disable no-undef */
+import { filtradoAnidado, filtradoB, sortAZ, sortZA } from "./data.js";
+// import data from './data/lol/lol.js';
 import data from "./data/countries/countries.js";
+// import data from './data/rickandmorty/rickandmorty.js';
+
 const countries = data.countries;
+
 
 //*********************** SELECCIÓN DE PAÍSES **********************//
 
@@ -46,7 +50,6 @@ const timezonesSet = new Set();
 data.countries.forEach((country) => {
   country.timezones.forEach((timezone) => {
     timezonesSet.add(timezone);
-
   });
 });
 
@@ -226,7 +229,7 @@ function openModal(country) {
   addCardInfo("Independent", country.independent ? "Yes" : "No");
   addCardInfo("Capital", country.capital.join(", "));
   addCardInfo("Subregion", country.subregion);
-  
+
   // Agrega los idiomas disponibles a la tabla
   const languages = Object.entries(country.languages);
   languages.forEach(([code, name]) => {
@@ -263,49 +266,52 @@ function closeModal() {
 }
 
 // Evento para cerrar el modal al hacer clic fuera del contenido
-window.onclick = function(event) {
+window.onclick = function (event) {
   const modal = document.getElementById("myModal");
   if (event.target === modal) {
     closeModal();
   }
 };
 
-
 //*********************** FUNCIONES DE FILTRADO **********************//
-
 
 const boton = document.getElementById("filtrar");
 boton.addEventListener("click", filtrandoDatos);
 let dataCountries = data.countries;
+
 function filtrandoDatos() {
   const selPais = document.getElementById("countrySelect").value;
   const selContinent = document.getElementById("continenteSelect").value;
   const selLanguages = document.getElementById("languageSelect").value;
   const selUtc = document.getElementById("utcSelect").value;
   const selIndep = document.getElementById("indepSelect").value;
-  
+
+  document.getElementById("countrySelect").value = "";
+  document.getElementById("continenteSelect").value = "";
+  document.getElementById("languageSelect").value = "";
+  document.getElementById("utcSelect").value = "";
+  document.getElementById("indepSelect").value = "";
+
   if (selPais !== "") {
     dataCountries = filtradoB(data.countries, selPais);
     showCountries(dataCountries);
-    console.log(dataCountries);
-  
-  } if(selContinent !== "") {
-    dataCountries = filtradoA(data.countries, selContinent);
-    showCountries(dataCountries);
-    console.log(dataCountries);
-  } if(selLanguages !== "") {
-    dataCountries = filtradoC(data.countries, selLanguages);
-    showCountries(dataCountries);
-    console.log(dataCountries);
-  } if(selUtc !== "") {
-    dataCountries = filtradoD(data.countries, selUtc);
-    console.log(dataCountries);
-    showCountries(dataCountries);
-  } if(selIndep !== "") {
-    dataCountries = filtradoE(data.countries, selIndep);
-    console.log(dataCountries);
-    showCountries(dataCountries);
-  } 
+  }
+
+  if (selContinent !== "" || selLanguages !== "" || selUtc !== "" || selIndep !== "") {
+    dataCountries = filtradoAnidado(
+      data.countries,
+      selContinent,
+      selLanguages,
+      selUtc,
+      selIndep
+    );
+    if (dataCountries.length > 0) {
+      showCountries(dataCountries);
+    } else {
+      const errorMessage = "Oops!, there are no countries with the options you selected, try others.";
+      document.getElementById("root").innerHTML = `<div id="error-message" class="error">${errorMessage}</div>`;
+    }
+  }
 }
 
 //*********************** FUNCIONES DE ORDENADO **********************//
@@ -330,20 +336,26 @@ function ordenandoDatos() {
 // Función para buscar en claves adicionales
 function searchInCountryKeys(country, searchTerm) {
   // Agregar las claves adicionales para buscar aquí
-  const keysToSearch = ["capital","subregion", "area"];
-    
+  const keysToSearch = ["capital", "subregion", "area"];
+
   for (let i = 0; i < keysToSearch.length; i++) {
     const key = keysToSearch[i];
-    
-    if (country[key] && country[key].toString().toLowerCase().trim().includes(searchTerm)) {
+
+    if (
+      country[key] &&
+      country[key].toString().toLowerCase().trim().includes(searchTerm)
+    ) {
       return true;
     }
   }
-    
+
   // Buscar en la clave "languages"
   if (country.languages) {
     for (const langKey in country.languages) {
-      const language = country.languages[langKey].toString().trim().toLowerCase();
+      const language = country.languages[langKey]
+        .toString()
+        .trim()
+        .toLowerCase();
       if (language.includes(searchTerm)) {
         return true;
       }
@@ -352,12 +364,18 @@ function searchInCountryKeys(country, searchTerm) {
   // Buscar en el rango de la clave "population"
   if (searchTerm.includes(">")) {
     const minPopulation = searchTerm.substring(1);
-    if (country.population && parseInt(country.population) > parseInt(minPopulation)) {
+    if (
+      country.population &&
+      parseInt(country.population) > parseInt(minPopulation)
+    ) {
       return true;
     }
   } else if (searchTerm.includes("<")) {
     const maxPopulation = searchTerm.substring(1);
-    if (country.population && parseInt(country.population) < parseInt(maxPopulation)) {
+    if (
+      country.population &&
+      parseInt(country.population) < parseInt(maxPopulation)
+    ) {
       return true;
     }
   } else if (searchTerm.includes("-")) {
@@ -366,21 +384,21 @@ function searchInCountryKeys(country, searchTerm) {
     const maxRange = rangeValues[1];
     if (
       country.population &&
-        parseInt(country.population) >= parseInt(minRange) &&
-        parseInt(country.population) <= parseInt(maxRange)
+      parseInt(country.population) >= parseInt(minRange) &&
+      parseInt(country.population) <= parseInt(maxRange)
     ) {
       return true;
     }
   }
-  
+
   return false;
 }
-  
+
 // Obtener elementos del DOM
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
 const searchResults = document.getElementById("search-results");
-  
+
 // Función de búsqueda
 function search() {
   const searchTerm = searchInput.value.toLowerCase();
@@ -391,13 +409,16 @@ function search() {
     const countryName = country.name.common;
 
     // Buscar en el nombre del país y en otras claves
-    if (countryName.includes(searchTerm) || searchInCountryKeys(country, searchTerm)) {
+    if (
+      countryName.includes(searchTerm) ||
+      searchInCountryKeys(country, searchTerm)
+    ) {
       const result = document.createElement("div");
       result.classList.add("country-result");
-      
+
       const table = document.createElement("table");
       const row = table.insertRow();
-      
+
       const countryNameCell = row.insertCell();
       countryNameCell.innerHTML = "<h3>" + countryName + "</h3>";
       countryNameCell.colSpan = 2;
@@ -407,7 +428,7 @@ function search() {
           const newRow = table.insertRow();
           const propCell = newRow.insertCell();
           const valueCell = newRow.insertCell();
-          
+
           propCell.innerHTML = "<strong>" + prop + "</strong>";
           valueCell.innerHTML = country[prop];
         }
@@ -419,9 +440,5 @@ function search() {
   }
 }
 
-  
 // Evento click del botón de búsqueda
 searchButton.addEventListener("click", search);
-
-
-  
