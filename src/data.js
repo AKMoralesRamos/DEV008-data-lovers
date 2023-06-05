@@ -1,34 +1,34 @@
 // estas funciones son de ejemplo
-
-export const filtradoA = (data, continente) => {
-  return data.filter(country => country.continents.includes(continente));
-};
-
 export const filtradoB = (data, pais) => {
   return data.filter(country => country.name.common === pais);
 };
 
-export const filtradoC = (data, lenguaje) => {
+export const filtradoAnidado = (data, continente, lenguaje, utc, independiente) => {
   return data.filter((country) => {
-    for (const languageCode in country.languages) {
-      if (country.languages[languageCode] === lenguaje) {
-        return true;
+    if (continente && !country.continents.includes(continente)) {
+      return false;
+    }
+    if (lenguaje) {
+      let languageMatch = false;
+      for (const languageCode in country.languages) {
+        if (country.languages[languageCode] === lenguaje) {
+          languageMatch = true;
+          break;
+        }
+      }
+      if (!languageMatch) {
+        return false;
       }
     }
-    return false;
+    if (utc && !country.timezones.includes(utc)) {
+      return false;
+    }
+    if (independiente && country.independent !== (independiente === "true")) {
+      return false;
+    }
+    return true;
   });
 };
-
-export const filtradoD = (data, utc) => {
-  return data.filter(country => country.timezones.includes(utc));
-};
- 
-export const filtradoE = (data, independiente) => {
-  const esIndependiente = independiente === "true"; 
-  const filteredCountries = data.filter(country => country.independent === esIndependiente);
-  return filteredCountries;
-};
-
 
 export const sortAZ = (countries) => {
   countries.sort((a, b) => {
@@ -63,6 +63,3 @@ export const sortZA = (countries) => {
 
   return countries;
 };
-
-
-
