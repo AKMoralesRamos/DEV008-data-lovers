@@ -12,6 +12,7 @@
   <!-- *Letra del nombre de país -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -38,9 +39,9 @@
         </ul>
       </nav>
       <div id="search-results"></div>
+      <!-- Modal para card  -->
       <div id="myModal" class="modal">
         <div class="modal-content">
-          <!-- <h3 id="modalTitle" class="mi-pais"></h3> -->
           <div class="card-info">
             <img id="modalImage" alt="Countries' flag" class="flag-image">
             <br>
@@ -49,6 +50,14 @@
           </div>
         </div>
       </div>
+      <!-- Modal para graficos -->
+      <div id="chartModal">
+        <div class="modal-content-g">
+         <span class="close">&times;</span>
+         <canvas id="chart"></canvas>
+        </div>
+      </div>
+      <!-- <canvas id="chart"></canvas> -->
       <div class="todo">
         <aside class="lateral">
           <section class="cajaseleccionsection">
@@ -102,6 +111,22 @@
               </fieldset>
               <br>
               <br>
+              <legend>Charts by continent</legend>
+              <select id="continentGraphSelect">
+<!--                 <option value="">Gráficos por continente</option> -->
+                <option value="America">América</option>
+                <option value="Europe">Europa</option>
+                <option value="Asia">Asia</option>
+                <option value="Africa">África</option>
+                <option value="Oceania">Oceanía</option>
+                <option value="Antarctica">Antártida</option>
+              </select>
+              <!-- INICIO -->
+              <!-- <button id="generateButton">Generar gráfico</button> -->
+              <!-- <canvas id="chart"></canvas> -->
+              <button id="openModalButton">Abrir gráfico</button>
+
+              <!-- FIN -->
             </fieldset>
             <br>
             <br>

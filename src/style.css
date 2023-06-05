@@ -718,3 +718,55 @@
     border-right-width: 0;
   }
 }
+
+ #chartModal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#chartModal .modal-content-g {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 800px;
+} 
+
+/* 
+.full-screen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.custom-modal-content {
+  width: 80%;
+  max-width: 800px; /* Puedes ajustar el tamaño máximo del modal según tus necesidades 
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #aaa;
+  cursor: pointer;
+} */

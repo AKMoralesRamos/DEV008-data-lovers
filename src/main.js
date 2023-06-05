@@ -1,9 +1,6 @@
-/* eslint-disable no-undef */
 import { filtradoA, filtradoB, filtradoC, filtradoD, filtradoE, sortAZ, sortZA} from "./data.js";
-// import data from './data/lol/lol.js';
+/* import Chart from 'chart.js/auto'; */
 import data from "./data/countries/countries.js";
-// import data from './data/rickandmorty/rickandmorty.js';
-
 const countries = data.countries;
 
 //*********************** SELECCIÓN DE PAÍSES **********************//
@@ -72,6 +69,101 @@ sortedTimezones.forEach((timezone) => {
   option.value = timezone;
   select.appendChild(option);
 });
+// Función para calcular estadísticas y mostrar gráfico
+let chart = null; // Variable para almacenar el gráfico actual
+
+function computeStats(countries) {
+  // Si hay un gráfico existente, destruirlo
+  if (chart) {
+    chart.destroy();
+  }
+  // Crear un array con las poblaciones de los países
+  const populations = countries.map(country => country.population);
+
+  // Calcular el promedio de la población
+  const averagePopulation = populations.reduce((acc, population) => acc + population, 0) / populations.length;
+
+  // Mostrar el promedio de la población en la consola
+  console.log('Promedio de población:', averagePopulation);
+
+  // Ajustar el tamaño del canvas
+  const chartCanvas = document.getElementById('chart');
+  chartCanvas.width = 1000; // Ajusta el valor según tus necesidades
+  chartCanvas.height = 700; // Ajusta el valor según tus necesidades
+
+  // Crear un gráfico de barras utilizando Chart.js
+  const ctx = document.getElementById('chart').getContext('2d');
+  chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: countries.map(country => country.name.common),
+      datasets: [{
+        label: 'Población',
+        data: populations,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      plugins: {
+        afterDraw: function(chart) {
+          const ctx = chart.ctx;
+          const populations = chart.data.datasets[0].data;
+          const averagePopulation = populations.reduce((acc, population) => acc + population, 0) / populations.length;
+
+          ctx.fillStyle = 'black';
+          ctx.font = '14px Arial';
+          ctx.textAlign = 'center';
+          ctx.fillText(`Promedio de población: ${averagePopulation.toLocaleString()}`, chart.width / 2, chart.height - 20);
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            autoSkip: false,
+            fontSize: 7
+          }
+        },
+        y: {
+          /* beginAtZero: true, 
+          suggestedMin: 10000000,*/
+          ticks: {
+            min: 10000000, // Establecer el valor mínimo en el eje Y
+            stepSize: 5000000, // Establecer el tamaño del intervalo en el eje Y
+            fontSize: 8, // Ajustar el tamaño de la letra en el eje Y
+
+          }
+        }
+      }
+    }
+  });
+}
+// Fin de Función para calcular estadísticas y mostrar gráfico
+// Función para generar el gráfico al hacer clic en el enlace del menú
+function generateChart() {
+  const continentGraphSelect = document.getElementById('continentGraphSelect');
+  const selectedContinent = continentGraphSelect.value;
+
+  // Filtrar los países por continente seleccionado
+  const filteredCountries = countries.filter(country => country.continents.includes(selectedContinent));
+
+  // Llamar a la función computeStats con los países filtrados
+  computeStats(filteredCountries);
+  // Mostrar el modal
+  document.getElementById('chartModal').style.display = 'block';
+}
+
+// Agrega un listener al botón de cierre del modal
+document.querySelector('#chartModal .close').addEventListener('click', function() {
+  // Oculta el modal al hacer clic en el botón de cierre
+  document.getElementById('chartModal').style.display = 'none';
+});
+
+
+// Agregar evento de escucha al botón
+//document.getElementById('generateButton').addEventListener('click', generateChart);
+document.getElementById('openModalButton').addEventListener('click', generateChart);
 
 //*********************** PRESENCIA DE TARJETAS EN EL ROOT **********************//
 
