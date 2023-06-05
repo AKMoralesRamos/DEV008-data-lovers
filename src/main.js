@@ -72,7 +72,10 @@ sortedTimezones.forEach((timezone) => {
   option.value = timezone;
   select.appendChild(option);
 });
-// Función para calcular estadísticas y mostrar gráfico
+
+//***************************** */ Función para calcular estadísticas y mostrar gráfico****************//
+
+
 let chart = null; // Variable para almacenar el gráfico actual
 
 function computeStats(countries) {
