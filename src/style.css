@@ -187,6 +187,45 @@
   }
 
   /************************Contenedor para caja lateral, root e infoadicional************************/
+
+  .contenedorGrafica {
+    width: 50%;
+    height: 60px;
+    padding: 0;
+    margin: 0;
+    background-color: #13104e;
+    border: 1px solid #13104e;
+    text-align: left;
+  }
+
+  #error-message.error {
+    margin: 5px;
+    padding: 5px;
+  }
+
+  #chartModal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  #chartModal .modal-content-g {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 5px;
+    border: 1px solid #888;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .todo {
     display: flex;
     flex-direction: column;
@@ -554,6 +593,42 @@
   }
 
   /************************Contenedor para caja lateral, root e infoadicional************************/
+  .contenedorGrafica {
+    width: 50%;
+    height: 50px;
+    background-color: #13104e;
+    border: 1px solid #13104e;
+    text-align: center;
+  }
+
+  #error-message.error {
+    margin: 5px;
+    padding: 5px;
+  }
+
+  #chartModal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  #chartModal .modal-content-g {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .todo {
     display: flex;
@@ -629,6 +704,7 @@
 
   #root {
     width: 60%;
+    min-height: 800px;
     border: 0px;
     background: url("azul.jpg");
     display: flex;
@@ -739,24 +815,3 @@
 }
 
 /**Modal Graficos****/
-
- #chartModal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-#chartModal .modal-content-g {
-  background-color: #fefefe;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 800px;
-} 

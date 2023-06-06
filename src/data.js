@@ -1,3 +1,5 @@
+
+
 // estas funciones son de ejemplo
 export const filtradoB = (data, pais) => {
   return data.filter(country => country.name.common === pais);
@@ -63,3 +65,5 @@ export const sortZA = (countries) => {
 
   return countries;
 };
+
+
