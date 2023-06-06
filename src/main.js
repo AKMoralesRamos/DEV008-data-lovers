@@ -99,7 +99,7 @@ function generateChart() {
   // Ajustar el tamaño del canvas
   const chartCanvas = document.getElementById("chart");
   chartCanvas.width = 1000; // Ajusta el valor según tus necesidades
-  chartCanvas.height = 700; // Ajusta el valor según tus necesidades
+  chartCanvas.height = 500; // Ajusta el valor según tus necesidades
 
   // Crear un gráfico de barras utilizando Chart.js
   const ctx = document.getElementById("chart").getContext("2d");
@@ -123,7 +123,7 @@ function generateChart() {
           ticks: {
             autoSkip: false,
             font: {
-              size: 8,
+              size: 6,
             },
           },
         },
@@ -132,7 +132,7 @@ function generateChart() {
             min: 10000000, // Establecer el valor mínimo en el eje Y
             stepSize: 5000000, // Establecer el tamaño del intervalo en el eje Y
             font: {
-              size: 8, // Ajustar el tamaño de la letra en el eje Y
+              size: 6, // Ajustar el tamaño de la letra en el eje Y
             },
           },
         },
@@ -331,15 +331,22 @@ function ordenandoDatos() {
 
 // Función para buscar en claves adicionales
 function searchInCountryKeys(country, searchTerm) {
-  // Agregar las claves adicionales para buscar aquí
-  const keysToSearch = ["capital", "subregion", "area"];
+  const keysToSearch = ["capital", "subregion", "languages", "continents", "name"];
 
   for (let i = 0; i < keysToSearch.length; i++) {
     const key = keysToSearch[i];
+    // Buscar en la clave "name"
+    if (
+      key === "name" &&
+      country.name &&
+      country.name.common.toLowerCase().includes(searchTerm.toLowerCase().trim())
+    ) {
+      return true;
+    }
 
     if (
       country[key] &&
-      country[key].toString().toLowerCase().trim().includes(searchTerm)
+      country[key].toString().toLowerCase().trim().includes(searchTerm.toLowerCase().trim())
     ) {
       return true;
     }
@@ -352,38 +359,9 @@ function searchInCountryKeys(country, searchTerm) {
         .toString()
         .trim()
         .toLowerCase();
-      if (language.includes(searchTerm)) {
+      if (language.includes(searchTerm.toLowerCase().trim())) {
         return true;
       }
-    }
-  }
-  // Buscar en el rango de la clave "population"
-  if (searchTerm.includes(">")) {
-    const minPopulation = searchTerm.substring(1);
-    if (
-      country.population &&
-      parseInt(country.population) > parseInt(minPopulation)
-    ) {
-      return true;
-    }
-  } else if (searchTerm.includes("<")) {
-    const maxPopulation = searchTerm.substring(1);
-    if (
-      country.population &&
-      parseInt(country.population) < parseInt(maxPopulation)
-    ) {
-      return true;
-    }
-  } else if (searchTerm.includes("-")) {
-    const rangeValues = searchTerm.split("-");
-    const minRange = rangeValues[0];
-    const maxRange = rangeValues[1];
-    if (
-      country.population &&
-      parseInt(country.population) >= parseInt(minRange) &&
-      parseInt(country.population) <= parseInt(maxRange)
-    ) {
-      return true;
     }
   }
 
@@ -407,7 +385,7 @@ function search() {
     // Buscar en el nombre del país y en otras claves
     if (
       countryName.includes(searchTerm) ||
-      searchInCountryKeys(country, searchTerm)
+      searchInCountryKeys(country, searchTerm.toLowerCase().trim())
     ) {
       const result = document.createElement("div");
       result.classList.add("country-result");
@@ -438,3 +416,10 @@ function search() {
 
 // Evento click del botón de búsqueda
 searchButton.addEventListener("click", search);
+
+
+// Evento click del botón de HOME
+const homeLink = document.getElementById("home-link");
+homeLink.addEventListener("click", function() {
+  location.reload();
+});
