@@ -1,4 +1,4 @@
-import {filtradoB, filtradoAnidado, sortAZ, sortZA } from "../src/data.js";
+import {filtradoB, filtradoAnidado, sortAZ, sortZA, computeStats } from "../src/data.js";
 const paises = [
   {
     "name": {
@@ -392,16 +392,15 @@ describe("Test funcion sortZA", () => {
   });
 });
 
-/* it('returns `example`', () => {
-    expect(example()).toBe('example');
-  }); */
-
-/*  describe('anotherExample', () => {
-  it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
+describe("Test funcion computeStats", () => {
+  it("computeStats es una funcion", () => {
+    expect(typeof computeStats).toBe("function");
   });
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
+  it('retorna el promedio de población de los países', () => {
+    const averagePopulation = computeStats(paises);
+    expect(Math.round(averagePopulation)).toBe(50492298);
   });
-}); */
+
+});
+

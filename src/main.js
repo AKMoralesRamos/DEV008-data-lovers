@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { filtradoAnidado, filtradoB, sortAZ, sortZA } from "./data.js";
+import { filtradoAnidado, filtradoB, sortAZ, sortZA, computeStats } from "./data.js";
 // import data from './data/lol/lol.js';
 import data from "./data/countries/countries.js";
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -76,27 +76,25 @@ sortedTimezones.forEach((timezone) => {
 
 let chart = null; // Variable para almacenar el gráfico actual
 
-function computeStats(countries) {
+function generateChart() {
   // Si hay un gráfico existente, destruirlo
   if (chart) {
     chart.destroy();
   }
-  // Crear un array con las poblaciones de los países
-  const populations = countries.map((country) => country.population);
+  const continentGraphSelect = document.getElementById("continentGraphSelect");
+  const selectedContinent = continentGraphSelect.value;
 
-  // Calcular el promedio de la población
-  const averagePopulation =
-    populations.reduce((acc, population) => acc + population, 0) /
-    populations.length;
+  // Filtrar los países por continente seleccionado
+  const filteredCountries = countries.filter((country) =>
+    country.continents.includes(selectedContinent)
+  );
+
+  // Llamar a la función computeStats con los países filtrados
+  const averagePopulation = computeStats(filteredCountries);
 
   // Mostrar el promedio de la población en el contenedor "contenedorGrafica"
   const graficaContent = document.querySelector(".contenedorGrafica");
   graficaContent.innerHTML = `<div id="error-message" class="error">Average population: ${averagePopulation.toLocaleString()}</div>`;
-
-  
-
-  // Mostrar el promedio de la población en la consola
-  console.log("Average population:", averagePopulation);
 
   // Ajustar el tamaño del canvas
   const chartCanvas = document.getElementById("chart");
@@ -108,11 +106,11 @@ function computeStats(countries) {
   chart = new Chart(ctx, {
     type: "bar",
     data: {
-      labels: countries.map((country) => country.name.common),
+      labels: filteredCountries.map((country) => country.name.common),
       datasets: [
         {
           label: "Population",
-          data: populations,
+          data: filteredCountries.map((country) => country.population),
           backgroundColor: "rgba(19, 16, 78, 1)",
           borderColor: "rgba(19, 16, 78, 1)",
           borderWidth: 1,
@@ -120,24 +118,6 @@ function computeStats(countries) {
       ],
     },
     options: {
-      /* plugins: {
-        afterDraw: function (chart) {
-          const ctx = chart.ctx;
-          const populations = chart.data.datasets[0].data;
-          const averagePopulation =
-            populations.reduce((acc, population) => acc + population, 0) /
-            populations.length;
-
-          ctx.fillStyle = "black";
-          ctx.font = "2px Arial";
-          ctx.textAlign = "center";
-          ctx.fillText(
-            `Promedio de población: ${averagePopulation.toLocaleString()}`,
-            chart.width / 2,
-            chart.height - 20
-          );
-        },
-      }, */
       scales: {
         x: {
           ticks: {
@@ -148,8 +128,6 @@ function computeStats(countries) {
           },
         },
         y: {
-          /* beginAtZero: true, 
-          suggestedMin: 10000000,*/
           ticks: {
             min: 10000000, // Establecer el valor mínimo en el eje Y
             stepSize: 5000000, // Establecer el tamaño del intervalo en el eje Y
@@ -161,20 +139,7 @@ function computeStats(countries) {
       },
     },
   });
-}
-// Fin de Función para calcular estadísticas y mostrar gráfico
-// Función para generar el gráfico al hacer clic en el enlace del menú
-function generateChart() {
-  const continentGraphSelect = document.getElementById("continentGraphSelect");
-  const selectedContinent = continentGraphSelect.value;
 
-  // Filtrar los países por continente seleccionado
-  const filteredCountries = countries.filter((country) =>
-    country.continents.includes(selectedContinent)
-  );
-
-  // Llamar a la función computeStats con los países filtrados
-  computeStats(filteredCountries);
   // Mostrar el modal
   document.getElementById("chartModal").style.display = "block";
 }
@@ -187,11 +152,9 @@ document
     document.getElementById("chartModal").style.display = "none";
   });
 
+
 // Agregar evento de escucha al botón
-//document.getElementById('generateButton').addEventListener('click', generateChart);
-document
-  .getElementById("openModalButton")
-  .addEventListener("click", generateChart);
+document.getElementById("openModalButton").addEventListener("click", generateChart);
 
 //*********************** PRESENCIA DE TARJETAS EN EL ROOT **********************//
 

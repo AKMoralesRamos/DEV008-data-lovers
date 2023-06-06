@@ -66,4 +66,9 @@ export const sortZA = (countries) => {
   return countries;
 };
 
+export function computeStats(countries) {
+  const populations = countries.map((country) => country.population);
+  const averagePopulation = populations.reduce((acc, population) => acc + population, 0) / populations.length;
 
+  return Math.round(averagePopulation);
+}
