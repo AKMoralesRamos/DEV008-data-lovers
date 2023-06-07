@@ -20,25 +20,28 @@
 
 Este es nuestro segundo proyecto para el Bootcamp de Frontend Development en Laboratoria, se nos solicitó cubrir los objetivos de aprendizaje para crear una página web que filtrara, ordenara y mostrara un cálculo agregado acerca de la data que escogimos, en este caso fue la de Countries.
 
+**Enlace a Zeplin**
+
+[Enlace a Zeplin](https://app.zeplin.io/project/647f969cd626bd0cdf41324b/flow/647f994c4c53360c8cf1bc35)
+
 ## 2. Resumen del proyecto
 
-En este proyecto **construirás una _página web_ para visualizar un
-_conjunto (set) de datos_** que se adecúe a lo que descubras que tu usuario
+En este proyecto **construímos una _página web_ para visualizar un
+_conjunto (set) de datos_** que se adecúaron a lo que descubrimos que nuestro usuario
 necesita.
 
-Como entregable final tendrás una página web que permita **visualizar la data,
+Como entregable final tenemos una página web que permite **visualizar la data,
 filtrarla, ordenarla y hacer algún cálculo agregado**. Con cálculo agregado
-nos referimos a distintos cálculos que puedes hacer con la data para mostrar
-información aún más relevante para los usuarios (promedio, el valor máximo
-o mínimo, etc).
+nos referimos a distintos cálculos que se pueden hacer con la data para mostrar
+información aún más relevante para los usuarios, en éste caso utilizamos el promedio.
 
-Esta vez te proponemos una serie de datos de diferentes _temáticas_ para que
-explores y decidas con qué temática te interesa trabajar. Hemos elegido
-específicamente estos sets de datos porque creemos que se adecúan bien a esta
-etapa de tu aprendizaje.
+Hemos elegido específicamente éste set de datos porque creemos que se adecuó bien a esta
+etapa de nuestro aprendizaje.
 
-El objetivo principal de este proyecto es que aprendas a diseñar y construir una
-interfaz web donde se pueda visualizar y manipular data, entendiendo lo que el
+**Countries**: En este set encontramos una lista con los países del mundo, junto con la respectiva información de cada país.
+
+El objetivo principal de este proyecto fue aprender a diseñar y construir una
+interfaz web donde se pudiera visualizar y manipular data, entendiendo lo que el
 usuario necesita.
 
 ## 3. Objetivos de aprendizaje
@@ -238,21 +241,30 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ## 4. Investigación previa
 
-*Elegimos la data de Countries y comenzamos con una lluvia de ideas para entender como podíamos hacer que nuestra interface de usuario mostrará la información más relevante.
-*Realizamos un prototipo de baja fidelidad en Figma y lo mostramos a tres usuarios, quienes nos hicieron pensar en contestar las siguientes preguntas:
+1.- Elegimos la data de Countries y comenzamos con una lluvia de ideas para entender como podíamos hacer que nuestra interfaz de usuario mostrará la información más relevante.
 
-¿Quiénes son los principales usuarios de nuestra página web?
+2.- Realizamos un prototipo de baja fidelidad en Figma y lo mostramos a tres usuarios, quienes nos hicieron pensar en contestar las siguientes preguntas:
+
+**¿Quiénes son los principales usuarios de nuestra página web?**
+
 Estudiantes que estén interesados en encontrar información concreta acerca de los países del mundo.
 
-¿Cuáles son los principales datos que te gustaría encontrar en nuestra interface? *Marca los que te interesaría.*
--Encontrar información relevante sobre los países del mundo como son: Lenguaje, Husos Horarios, Área, Población, Fronteras,otros datos relevantes en cada uno de los países: *Escríbelos*.
+**¿Cuáles son los principales datos que te gustaría encontrar en nuestra interface?** 
 
-¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
+*Marca los que te interesaría.*
+
+-Encontrar información relevante sobre los países del mundo como son: Lenguaje, Husos Horarios, Área, Población, Fronteras,otros datos relevantes en cada uno de los países:
+
+ *Escríbelos*.
+
+**¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?**
+
 - Observar la bandera que caracteriza a cada país, junto con su información relevante.
 
 - Poder observar países por continente y saber qué lenguajes se hablan.
 
-¿Cuándo utilizarían nuestra página web?
+**¿Cuándo utilizarían nuestra página web?**
+
 - Realmente para fines de estudio o de curiosidad momentánea.
 
 Después de sumar las opiniones de nuestros usuarios, realizamos un nuevo prototipo de alta fidelidad en Figma: 
@@ -264,7 +276,7 @@ Después de sumar las opiniones de nuestros usuarios, realizamos un nuevo protot
 
 ### Historias de usuario
 
-Una vez que entiendas las necesidades de tus usuarios, escribe las [Historias
+Una vez que entendimos las necesidades de tus usuarios, escribimos las [Historias
 de Usuario](https://es.wikipedia.org/wiki/Historias_de_usuario) que representen
 todo lo que el usuario necesita hacer/ver.
 
@@ -283,44 +295,48 @@ todo lo que el usuario necesita hacer/ver.
 
 #### Prototipo de alta fidelidad
 
-El diseño debe representar el _ideal_ de tu solución. Digamos que es lo que
-desearías implementar si tuvieras tiempo ilimitado para trabajar. Además, tu
-diseño debe seguir los fundamentos de _visual design_.
+El diseño representa el _ideal_ de nuestra solución. 
+Es todo lo que implementamos a lo largo de la investigación.
+Además, consideramos que nuestro diseño sigue los fundamentos de _visual design_.
 
 ![Alta Fidelidad en Figma](/src/altaFidelidad.PNG)
 
 #### Testeos de usabilidad
 
-Durante el reto deberás hacer _tests_ de usabilidad con distintos usuarios, y
-en base a los resultados, deberás iterar tus diseños. Cuéntanos
-qué problemas de usabilidad detectaste a través de los _tests_ y cómo los
-mejoraste en tu propuesta final.
+Durante el reto hicimos _tests_ de usabilidad con distintos usuarios, y
+en base a los resultados, iteramos nuestros diseños. Dentro de los problemas de usabilidad que 
+detectamos a través de los _tests_ fueron los siguientes: 
 
 *-Yo como usuario me di cuenta que los filtros funcionaban solo en un orden, lo cual me dificultaba el uso de la página*
 
 ¿Cómo resolvimos?
-Modificamos el código, realizando un anidado de los filtros que teníamos de forma individual en un principio.
+
+-Modificamos el código, realizando un anidado de los filtros que teníamos de forma individual en un principio.
 
 *-Yo como usuario me di cuenta que el país del que quise conocer sus fronteras no me mostraba su tarjeta de información*
 
 ¿Cómo resolvimos?
-Nos dimos cuenta que al existir países que no contaban con ciertas características que nuestro código tomaba en cuenta, nos generaba un error y la tarjeta no se mostraba, en ese caso completamos la información necesaria en la data.
+
+-Nos dimos cuenta que al existir países que no contaban con ciertas características que nuestro código tomaba en cuenta, nos generaba un error y la tarjeta no se mostraba, en ese caso completamos la información necesaria en la data.
 
 *-Yo como usuario me di cuenta que podía ordenar las banderas de los países pero no entendía a que se referían con ascendente y descendente*
 
 ¿Cómo resolvimos?
-Colocamos dos opciones de selección que hacen referencia a ordenamiento de la A a la Z y ordenamiento de la Z a la A.
+
+-Colocamos dos opciones de selección que hacen referencia a ordenamiento de la A a la Z y ordenamiento de la Z a la A.
 
 *-Yo como usuario me di cuenta que al poner un nombre en el buscador general desde la predicción de mi teclado en el celular, no me mostraba la información, pero en la computadora si*
 
 ¿Cómo resolvimos?
-Colocamos un método que nos estaba faltando en nuestra función para que desde el celular y con la opción de autocompletado eliminara los espacios generados en blanco y por tanto no mostrara resultados.
+
+-Colocamos un método que nos estaba faltando en nuestra función para que desde el celular y con la opción de autocompletado eliminara los espacios generados en blanco y por tanto no mostrara resultados.
 
 *-Yo como usuario no entendía porque la página no me mostraba las banderas en ciertas ocasiones, supuse que era el orden del filtro*
 
 ¿Cómo resolvimos?
-Resolvimos cambiando el código a un filtro anidado y colocando el siguiente mensaje en pantalla para las ocasiones en que el filtro anidado no mostrará resultados porque no existían esas posibilidades.
-Mensaje: Oops!, there are no countries with the options you selected, try others.
+
+-Resolvimos cambiando el código a un filtro anidado y colocando el siguiente mensaje en pantalla para las ocasiones en que el filtro anidado no mostrará resultados porque no existían esas posibilidades.
+Mensaje: **Oops!, there are no countries with the options you selected, try others.**
 
 ### Implementación de la Interfaz de Usuario (HTML/CSS/JS)
 
